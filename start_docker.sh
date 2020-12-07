@@ -45,12 +45,12 @@ DB_CONTAINER=`docker run -d -p $DB_PORT:3306 \
        -e MYSQL_DATABASE="$DB_DATABASE" \
        -e MYSQL_USER="$DB_USERNAME" \
        -e MYSQL_PASSWORD="$DB_PASSWORD" \
-       mysql`
+       mysql:5.6`
 echo $DB_CONTAINER
 
 DB_HOST=`docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $DB_CONTAINER`
 
-docker run -i -d -p 80:80 \
+docker run -i -d -p 8081:80 \
        -v /etc/localtime:/etc/localtime:ro \
        -e APACHE_SERVERNAME="$APACHE_SERVERNAME" \
        -e APP_ENV="$APP_ENV" \

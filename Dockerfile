@@ -27,7 +27,9 @@ ENV APP_ENV=prod \
     DB_USERNAME=hogwarts \
     CACHE_DRIVER=array \
     QUEUE_DRIVER=array \
-    SEED_DATABASE=false
+    SEED_DATABASE=false \
+    ADMIN_USER=bourgouinadrien@paparenard.online \
+    ADMIN_PASSWORD=pookie
 
 # Note : the mysql database is sometime long to init
 ADD docker/wait-for-it.sh /usr/local/bin/
